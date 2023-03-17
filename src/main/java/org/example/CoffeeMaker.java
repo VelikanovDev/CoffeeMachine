@@ -45,31 +45,24 @@ public class CoffeeMaker {
         boolean isEnoughBeans = storage.getAmountOfBeans() >= beans;
         boolean isEnoughCups = storage.getDisponsableCups() >= 1;
 
-        if(isEnoughWater) {
-            if(isEnoughMilk) {
-                if(isEnoughBeans) {
-                    if(isEnoughCups) {
-                        System.out.println("I have enough resources, making you a coffee!\n");
-                        return true;
-                    }
-                    else {
-                        System.out.println("Sorry, not enough cups!\n");
-                        return false;
-                    }
-                }
-                else {
-                    System.out.println("Sorry, not enough beans!\n");
-                    return false;
-                }
-            }
-            else {
-                System.out.println("Sorry, not enough milk!\n");
-                return false;
-            }
-        }
-        else {
+        if(!isEnoughWater) {
             System.out.println("Sorry, not enough water!\n");
             return false;
         }
+        if(!isEnoughMilk) {
+            System.out.println("Sorry, not enough milk!\n");
+            return false;
+        }
+        if(!isEnoughBeans) {
+            System.out.println("Sorry, not enough beans!\n");
+            return false;
+        }
+        if(!isEnoughCups) {
+            System.out.println("Sorry, not enough cups!\n");
+            return false;
+        }
+
+        System.out.println("I have enough resources, making you a coffee!\n");
+        return true;
     }
 }
